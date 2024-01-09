@@ -1,0 +1,45 @@
+<html>   
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+          function subscribe() {
+            var email = prompt("What is your email?", "????");
+
+            $.post({
+              type: "POST",
+              url: "email",
+              data: email,
+              contentType: "application/text; charset=utf-8",
+              dataType: "json"
+            }).done(function(data) {
+              alert(data);
+            }).fail(function(data) {
+              alert("POST failed");
+            });
+          }
+        </script>
+      </head> 
+    
+  <body>
+      
+    <h1>Welcome!</h1>
+
+    <p>Voting is pretty cool... you should do it! On this site, you can find the locations of all the polling places in Dane County. Try to locate your nearest location, and make sure you VOTE ON APRIL 3RD! Enjoy the data :p</p>
+      
+    <h3><a href="browse.html" id="browse-data">Browse Data</a></h3>
+    <h3><a href="donate.html?from=B" id="browse">Donate</a></h3>
+      
+    <button onclick="subscribe()">Subscribe</button>
+      
+    <h3>Plot 1</h3>
+    <img src="dashboard_1.svg">
+    
+    <h3>Plot 2</h3>
+    <img src="dashboard_1.svg?bins=100">
+      
+    <h3>Plot 3</h3>
+    <img src="dashboard_2.svg">
+      
+      
+  </body>
+</html>
